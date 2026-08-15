@@ -8,7 +8,10 @@ SELECT
   animal_id,
   animal_type,
   NULLIF(name,'') AS name,
-  TRY_TO_TIMESTAMP_NTZ(datetime_str, 'MM/DD/YYYY HH12:MI:SS AM') AS intake_ts,
+  COALESCE(
+    TRY_TO_TIMESTAMP_NTZ(datetime_str, 'MM/DD/YYYY HH12:MI:SS AM'),
+    TRY_TO_TIMESTAMP_NTZ(REPLACE(LEFT(datetime_str, 19), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS')
+  ) AS intake_ts,
   found_location,
   intake_type,
   intake_condition,
