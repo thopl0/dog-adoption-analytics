@@ -2,7 +2,7 @@
 
 Thirteen years of Austin Animal Center records in Snowflake, and a Streamlit app on top of them, asking what it costs a dog to look like a pit bull.
 
-**[Live app](PASTE_STREAMLIT_URL_HERE)** · **[Write-up](dev-post.md)**
+**[Live app](https://dog-adoption-analytics.streamlit.app/)** · **[Write-up](https://dev.to/thopl0/380000-shelter-records-what-it-costs-a-dog-to-just-look-like-a-pit-bull-3ibc)**
 
 ## The finding
 
@@ -10,15 +10,15 @@ The question this started from was whether the case for banning pit bulls holds 
 
 What Austin's records can measure is what that guessing costs.
 
-Black dog syndrome does not show up at all. Black dogs are the largest group in the data, 24,546 of them, adopted more often than white dogs, and eighth of seventeen colours on wait time. The colours that *are* slow (blue, fawn, and the two brindles) are the words people use when describing a pit bull. Blue dogs are 81.8% pit bull.
+Black dog syndrome does not show up at all. Black dogs are the largest group in the data, 24,546 of them, adopted more often than white dogs, and eighth of seventeen colours on wait time. The colours that _are_ slow (blue, fawn, and the two brindles) are the words people use when describing a pit bull. Blue dogs are 81.8% pit bull.
 
 Grouping dogs by how much they look the part, the wait doubles at each step:
 
-| breed group | dogs | adopted | median days | waited over a month |
-|---|---|---|---|---|
-| Other | 70,936 | 51.5% | 8 | 21.1% |
-| Bully adjacent | 5,198 | 45.7% | 14 | 33.8% |
-| Pit Bull type | 17,831 | 46.0% | 28 | 48.9% |
+| breed group    | dogs   | adopted | median days | waited over a month |
+| -------------- | ------ | ------- | ----------- | ------------------- |
+| Other          | 70,936 | 51.5%   | 8           | 21.1%               |
+| Bully adjacent | 5,198  | 45.7%   | 14          | 33.8%               |
+| Pit Bull type  | 17,831 | 46.0%   | 28          | 48.9%               |
 
 **`Bully adjacent` is the row that matters.** Boxers, cane corsos, bullmastiffs, rottweilers. Nobody wrote pit bull on their paperwork. They only look like one, and it costs them about 46% of the full penalty. It is the same visual identification that fills in the breed box on a bite report, with a number attached.
 
@@ -119,12 +119,12 @@ scripts/         load_all.py rebuilds the raw layer, load_current.py refreshes t
 
 All City of Austin open data via Socrata, no auth required.
 
-| dataset | id | rows |
-|---|---|---|
-| Intakes, historical | `wter-evkm` | 173,812 |
+| dataset              | id          | rows    |
+| -------------------- | ----------- | ------- |
+| Intakes, historical  | `wter-evkm` | 173,812 |
 | Outcomes, historical | `9t4d-g238` | 173,775 |
-| Intakes, live | `pyqf-r2dc` | ~16,300 |
-| Outcomes, live | `gsvs-ypi7` | ~16,100 |
+| Intakes, live        | `pyqf-r2dc` | ~16,300 |
+| Outcomes, live       | `gsvs-ypi7` | ~16,100 |
 
 The two live feeds come from a different system with completely different schemas. They are loaded separately and only stitched at the analytics layer. The live intake feed splits `Dog` and `Puppy` into separate `type` values, so filtering on `= 'Dog'` silently drops puppies.
 
