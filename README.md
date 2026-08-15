@@ -6,9 +6,11 @@ Thirteen years of Austin Animal Center records in Snowflake, and a Streamlit app
 
 ## The finding
 
-Black dog syndrome is not real in this data. Black dogs are the largest group in it, 24,546 of them, they are adopted more often than white dogs, and they come eighth of seventeen colours on wait time.
+The question this started from was whether the case for banning pit bulls holds up. It can't be settled from the numbers people quote at each other, because breed on a bite report is whoever filled the form in guessing by eye. In [Olson and Levy's study](https://www.sciencedirect.com/science/article/pii/S109002331500310X), 16 shelter staff identified 120 dogs and then the dogs were DNA tested. DNA found 25 pit bull types. The staff called 62.
 
-The colours that *are* slow (blue, fawn, and the two brindles) are the words people use when describing a pit bull. Blue dogs are 81.8% pit bull.
+What Austin's records can measure is what that guessing costs.
+
+Black dog syndrome does not show up at all. Black dogs are the largest group in the data, 24,546 of them, adopted more often than white dogs, and eighth of seventeen colours on wait time. The colours that *are* slow (blue, fawn, and the two brindles) are the words people use when describing a pit bull. Blue dogs are 81.8% pit bull.
 
 Grouping dogs by how much they look the part, the wait doubles at each step:
 
@@ -18,9 +20,13 @@ Grouping dogs by how much they look the part, the wait doubles at each step:
 | Bully adjacent | 5,198 | 45.7% | 14 | 33.8% |
 | Pit Bull type | 17,831 | 46.0% | 28 | 48.9% |
 
-`Bully adjacent` is the row that matters. Those are boxers, cane corsos, bullmastiffs and rottweilers. Nobody wrote pit bull on their paperwork. They only look like one, and it costs them about 46% of the full penalty.
+**`Bully adjacent` is the row that matters.** Boxers, cane corsos, bullmastiffs, rottweilers. Nobody wrote pit bull on their paperwork. They only look like one, and it costs them about 46% of the full penalty. It is the same visual identification that fills in the breed box on a bite report, with a number attached.
 
-The result replicates out of sample on Austin's new record system (23 / 38.5 / 54 days over 6,052 stays that the analysis was never fitted to), survives a counting-change check (transfers held at 5 days while adoption went 9 to 28), and is uncorrelated with local unemployment across 123 months.
+Three checks on that result:
+
+- **It replicates out of sample.** 23 / 38.5 / 54 days across 6,052 stays under Austin's new record system, a different pipeline with a different schema that the analysis was never fitted to.
+- **It is not a counting change.** Transfers held at 5 days across the system switch while adoption went from 9 days to 28. Only the outcome that needs a member of the public to choose a dog moved.
+- **It is not the economy.** Correlation between Austin metro unemployment and the gap between breed groups is -0.02 across 123 non-pandemic months.
 
 ## How it works
 
