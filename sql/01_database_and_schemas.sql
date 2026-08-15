@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS shelter;
+CREATE SCHEMA   IF NOT EXISTS shelter.raw;
+CREATE SCHEMA   IF NOT EXISTS shelter.analytics;
